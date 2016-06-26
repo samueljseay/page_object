@@ -16,8 +16,8 @@ defmodule DashboardPage do
   visitable :visit, "http://localhost:4001/account/:account_id/dashboard"
   clickable :submit, "input[type='submit']"
 
-  collection :things, scope: ".um" do
-    clickable :submit, "input[type='submit']"
+  collection :things, scope: ".things" do
+    clickable :click, "button"
   end
 
   def visit_and_submit(account_id) do
@@ -26,4 +26,12 @@ defmodule DashboardPage do
   end
 end
 
+# visit http://localhost:4001/account/1/dashboard?test_param=filter
 DashboardPage.visit_and_submit(1)
+
+# how many ".things" are there
+DashboardPage.Things.count
+
+# get 0th item from collection of elements and click button on that item
+DashboardPage.Things.get(0)
+|> DashboardPage.Things.click

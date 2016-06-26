@@ -16,7 +16,7 @@ defmodule PageObject.Collections.Collection do
         end
 
         def get(index) do
-          IO.puts "get single element here"
+          "single element here"
         end
       end
     end
