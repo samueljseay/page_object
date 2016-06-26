@@ -24,7 +24,6 @@ defmodule PageObject.Actions.Visitable do
             end
           end)
 
-        # TODO use hound here
         IO.puts "visiting: " <> url
       end
     end

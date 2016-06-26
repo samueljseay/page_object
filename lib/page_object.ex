@@ -16,8 +16,8 @@ defmodule DashboardPage do
   visitable :visit, "http://localhost:4001/account/:account_id/dashboard"
   clickable :submit, "input[type='submit']"
 
-  collection :things, scope: ".um " do
-    # clickable :submit, "input[type='submit']"
+  collection :things, scope: ".um" do
+    clickable :submit, "input[type='submit']"
   end
 
   def visit_and_submit(account_id) do
