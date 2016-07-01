@@ -3,13 +3,16 @@ defmodule PageObject.Queries.Attribute do
     quote do
       scope = Module.get_attribute(__MODULE__, :scope) || ""
 
-      if scope != "" do
-        def unquote(name)(el) do
-          IO.puts "Getting value of #{unquote(attr)} for element's first #{unquote(css_selector)}"
+      if scope == "" do
+        def unquote(name)() do
+          find_element(:css, unquote(css_selector))
+          |> attribute_value(unquote(attr))
         end
       else
-        def unquote(name)() do
-          IO.puts "Getting value of #{unquote(attr)} for #{unquote(css_selector)}"
+        def unquote(name)(el) do
+          el
+          |> find_within_element(:css, unquote(css_selector))
+          |> attribute_value(unquote(attr))
         end
       end
     end

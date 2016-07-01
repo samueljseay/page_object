@@ -8,7 +8,8 @@ defmodule CollectionTest do
     use PageObject
 
     collection :things, item_scope: "ul .thing" do
-      text :text, "li"
+      text :title, "a.title"
+      attribute :special_attr, "data-special-attr", "a.title"
     end
   end
 
@@ -20,10 +21,15 @@ defmodule CollectionTest do
   test "collection scopes queries to the item_scope" do
     navigate_to "http://localhost:4000/index.html"
 
-    last_item_text =
+    last_item_title =
       IndexPage.Things.get(4)
-      |> IndexPage.Things.text
+      |> IndexPage.Things.title
 
-    assert last_item_text == "Thing #5"
+    first_special_attr =
+      IndexPage.Things.get(0)
+      |> IndexPage.Things.special_attr
+
+    assert last_item_title == "Thing #5"
+    assert first_special_attr == "thing-1"
   end
 end
