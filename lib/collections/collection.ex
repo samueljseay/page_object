@@ -16,19 +16,18 @@ defmodule PageObject.Collections.Collection do
           Module.register_attribute(module, :scope, accumulate: false)
         end
 
-        Module.put_attribute(module, :scope, unquote(opts[:scope]) <> " ")
+        Module.put_attribute(module, :scope, unquote(opts[:item_scope]) <> " ")
 
         use PageObject
 
         unquote(block)
 
         def get(index) do
-          IO.puts "single element here"
+          Enum.fetch!(find_all_elements(:css, unquote(opts[:item_scope])), index)
         end
 
         def all() do
-          IO.puts "select all #{unquote(opts[:scope])}"
-          []
+          find_all_elements(:css, unquote(opts[:item_scope]))
         end
 
         Module.put_attribute(module, :scope, "")

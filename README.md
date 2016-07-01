@@ -16,7 +16,7 @@ defmodule DashboardPage do
   clickable :submit, "input[type='submit']"
   clickable :logout, "button.logout"
 
-  collection :things, scope: ".things" do
+  collection :things, item_scope: ".thing" do
     clickable :click, "button"
     value :name_value, "input[name='name']"
   end
@@ -48,3 +48,10 @@ DashboardPage.Things.get(0)
 DashboardPage.Things.get(0)
 |> DashboardPage.Things.name_value
 ```
+
+## Automated Browser Tests
+
+Browser automation is handled by Hound but you'll also need phantomjs installed.
+
+1. `npm install -g phantomjs`
+2. `phantomjs --wd > /dev/null 2>&1 & mix test; killall phantomjs`

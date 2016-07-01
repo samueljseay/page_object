@@ -5,7 +5,7 @@ defmodule PageObject.Queries.Text do
 
       if scope != "" do
         def unquote(name)(el) do
-          IO.puts "Getting text for #{unquote(css_selector)} for element's first #{unquote(css_selector)}"
+          inner_text(el)
         end
       else
         def unquote(name)() do
