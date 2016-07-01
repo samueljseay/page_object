@@ -44,7 +44,7 @@ IO.puts count
 DashboardPage.Things.get(0)
 |> DashboardPage.Things.click
 
-#get 0th item from collection and query the value
+#get 0th item from collection and query the value of "input[name='name']"
 DashboardPage.Things.get(0)
 |> DashboardPage.Things.name_value
 ```
