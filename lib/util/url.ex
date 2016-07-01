@@ -10,7 +10,6 @@ defmodule PageObject.Util.Url do
     end)
   end
 
-  # borrowed from Plug.Router.Utils
   def split(url) do
     for segment <- String.split(url, "/"), segment != "", do: segment
   end

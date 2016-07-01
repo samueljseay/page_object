@@ -5,6 +5,7 @@ defmodule PageObject do
       import PageObject.Actions.Visitable
       import PageObject.Actions.Clickable
       import PageObject.Collections.Collection
+      import PageObject.Queries.{Attribute, Property, Text, Value}
     end
   end
 end
@@ -14,10 +15,13 @@ defmodule DashboardPage do
   use PageObject
 
   visitable :visit, "http://localhost:4001/account/:account_id/dashboard"
+
   clickable :submit, "input[type='submit']"
+  clickable :logout, "button.logout"
 
   collection :things, scope: ".things" do
     clickable :click, "button"
+    value :name_value, "input[name='name']"
   end
 
   def visit_and_submit(account_id) do
@@ -29,9 +33,20 @@ end
 # visit http://localhost:4001/account/1/dashboard?test_param=filter
 DashboardPage.visit_and_submit(1)
 
+# click logout
+DashboardPage.logout
+
 # how many ".things" are there
-DashboardPage.Things.count
+count =
+  DashboardPage.Things.all
+  |> Enum.count
+
+IO.puts count
 
 # get 0th item from collection of elements and click button on that item
 DashboardPage.Things.get(0)
 |> DashboardPage.Things.click
+
+#get 0th item from collection and query the value
+DashboardPage.Things.get(0)
+|> DashboardPage.Things.name_value

@@ -3,12 +3,8 @@ defmodule PageObject.Actions.Visitable do
 
   defmacro visitable(action_name, url) do
     quote do
-      Module.register_attribute(__MODULE__, :visitables, accumulate: true)
-
-      @visitables {unquote(action_name), unquote(url)}
-
       def unquote(action_name)(segments \\ []) do
-        url = @visitables[unquote(action_name)]
+        url = unquote(url)
         url_parts = Url.convert_url_to_dynamic_segments(url)
         url =
           Enum.reduce(segments, url, fn({segment_key, segment_value}, acc) ->
