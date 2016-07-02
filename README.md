@@ -1,5 +1,7 @@
 # PageObject
 
+[![Build Status](https://travis-ci.org/samueljseay/page_object.svg?branch=master)](https://travis-ci.org/samueljseay/page_object)
+
 PageObject is a DSL implementing something akin to the
 Page Object pattern for automated testing in Elixir. The API is inspired by [ember-cli-page-object](https://github.com/san650/ember-cli-page-object).
 
@@ -66,7 +68,7 @@ For more API examples see the [tests](https://github.com/samueljseay/page_object
 Browser automation is handled by Hound but you'll also need phantomjs installed.
 
 1. `npm install -g phantomjs`
-2. `phantomjs --wd > /dev/null 2>&1 & mix test;`
+2. `phantomjs --wd > /dev/null 2>&1 & mix test; && killall phantomjs`
 
 ### TODO
 * publish on hex
