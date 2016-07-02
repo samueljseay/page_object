@@ -5,7 +5,7 @@ defmodule PageObject do
 
       import PageObject
       import PageObject.Collections.Collection
-      import PageObject.Actions.{Visitable, Clickable}
+      import PageObject.Actions.{Visitable, Clickable, Fillable}
       import PageObject.Queries.{Attribute, Text, Value}
     end
   end

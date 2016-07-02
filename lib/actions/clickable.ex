@@ -12,19 +12,18 @@ defmodule PageObject.Actions.Clickable do
       # unscoped example:
       # Page.click
 
-      if (scope != "") do
-        def unquote(action_name)(el) do
-          click(el)
-          IO.puts "clicking specific element"
+      if (scope == "") do
+        def unquote(action_name)() do
+          find_element(:css, unquote(css_selector))
+          |> click
         end
       else
-        def unquote(action_name)() do
-          selector = unquote(css_selector)
-
-          IO.puts "clicking: " <> selector
+        def unquote(action_name)(el) do
+          el
+          |> find_within_element(:css, unquote(css_selector))
+          |> click
         end
       end
-
     end
   end
 end

@@ -23,9 +23,19 @@ defmodule PageObject.Util.Url do
   end
 
   def put_query_string(url, query_param, val) do
+    encoded_param =
+      query_param
+      |> to_string
+      |> URI.encode
+
+    encoded_val =
+      val
+      |> to_string
+      |> URI.encode
+
     case String.contains?(url, "?") do
-      true -> url <> "&#{query_param}=#{val}"
-      false -> url <> "?#{query_param}=#{val}"
+      true -> url <> "&#{encoded_param}=#{encoded_val}"
+      false -> url <> "?#{encoded_param}=#{encoded_val}"
     end
   end
 end

@@ -15,12 +15,12 @@ defmodule PageObject.Actions.Visitable do
                 String.replace(
                   acc,
                   ":" <> Atom.to_string(segment_key),
-                  to_string(segment_value)
+                  URI.encode(to_string(segment_value))
                 )
             end
           end)
 
-        IO.puts "visiting: " <> url
+        navigate_to(url)
       end
     end
   end

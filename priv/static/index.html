@@ -2,22 +2,48 @@
   <head>
   </head>
   <body>
+    <header>
+      <h2>The main heading</h2>
+      <h3>The sub heading</h3>
+    </header>
+    <!--  things collection -->
     <ul class="things">
       <li class="thing">
         <a class="title" data-special-attr="thing-1">Thing #1</a>
+        <input type="text" class="thing-input" value="thing-1-value" >
       </li>
       <li class="thing">
         <a class="title" data-special-attr="thing-2">Thing #2</a>
+        <input type="text" class="thing-input" value="thing-2-value" >
       </li>
       <li class="thing">
         <a class="title" data-special-attr="thing-3">Thing #3</a>
+        <input type="text" class="thing-input" value="thing-3-value" >
       </li>
       <li class="thing">
         <a class="title" data-special-attr="thing-4">Thing #4</a>
+        <input type="text" class="thing-input" value="thing-4-value" >
       </li>
       <li class="thing">
         <a class="title" data-special-attr="thing-5">Thing #5</a>
+        <input type="text" class="thing-input" value="thing-5-value" >
       </li>
     </ul>
+
+    <input type="radio" checked="checked" id="radio-attribute-1" >
+    <input type="text" placeholder="placeholder text" id="input-attribute-1">
+
+    <input name="email" value="test@example.com">
+    <input name="username" value="testuser">
+
+    <button id="show-hidden" onClick="showHidden()">Show!</button>
+    <div id="hidden" style="display:none;"><p>This is hidden</p></div>
+
+    <script type="application/javascript">
+      var showHidden = function() {
+        var hidden = document.getElementById('hidden');
+        hidden.style.cssText = "display:block;"
+      }
+    </script>
   </body>
 </html>
