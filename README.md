@@ -1,9 +1,19 @@
-# PageObject - Work In Progess
+# PageObject
 
-## What is a Page Object?
+PageObject is a DSL implementing something akin to the
+Page Object pattern for automated testing in Elixir. The API is inspired by [ember-cli-page-object](https://github.com/san650/ember-cli-page-object).
 
-Within your web app's UI there are areas that your tests interact with. A Page Object simply models these as objects within the test code. This reduces the amount of duplicated code and means that if the UI changes, the fix need only be applied in one place.
+To find out more about the PageObject pattern check out the [selenium documentation](https://seleniumhq.github.io/docs/best.html#page_object_models).
 
+## Install
+
+PageObject is not published on hex yet, so if you want to use it at the moment you'll need to add the following to your mix.exs in deps:
+
+`{:page_object, git: "https://github.com/samueljseay/page_object"}`
+
+To use PageObject in your tests you'll still need to setup hound in your test environment. To find out more about that go to the [hound repository](https://github.com/HashNuke/hound).
+
+Once you have hound and have started a `hound_session` in your test you can use PageObject modules you've defined as in the API examples below.
 
 ## API Example
 
@@ -49,9 +59,15 @@ DashboardPage.Things.get(0)
 |> DashboardPage.Things.name_value
 ```
 
-## Automated Browser Tests
+For more API examples see the [tests](https://github.com/samueljseay/page_object/tree/master/test). Documentation coming soon.
+
+### Running the tests
 
 Browser automation is handled by Hound but you'll also need phantomjs installed.
 
 1. `npm install -g phantomjs`
-2. `phantomjs --wd > /dev/null 2>&1 & mix test; killall phantomjs`
+2. `phantomjs --wd > /dev/null 2>&1 & mix test;`
+
+### TODO
+* publish on hex
+* moduledoc
