@@ -20,6 +20,7 @@ defmodule PageObject.Mixfile do
   defp deps do
     [{:hound, "~> 1.0.1"},
      {:cowboy, "~> 1.0.3", only: :test},
-     {:plug, "~> 1.0", only: :test}]
+     {:plug, "~> 1.0", only: :test},
+     {:inflex, "~> 1.7.0" }]
   end
 end

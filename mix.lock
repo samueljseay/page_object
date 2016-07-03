@@ -5,6 +5,7 @@
   "hound": {:hex, :hound, "1.0.1", "07c39d871bd881c2f60470a718b570545dbefec1a38c701c2eb984ca0b57ec9f", [:mix], [{:poison, ">= 1.4.0", [hex: :poison, optional: false]}, {:httpoison, "~> 0.8", [hex: :httpoison, optional: false]}]},
   "httpoison": {:hex, :httpoison, "0.9.0", "68187a2daddfabbe7ca8f7d75ef227f89f0e1507f7eecb67e4536b3c516faddb", [:mix], [{:hackney, "~> 1.6.0", [hex: :hackney, optional: false]}]},
   "idna": {:hex, :idna, "1.2.0", "ac62ee99da068f43c50dc69acf700e03a62a348360126260e87f2b54eced86b2", [:rebar3], []},
+  "inflex": {:hex, :inflex, "1.7.0", "4466a34b7d8e871d8164619ba0f3b8410ec782e900f0ae1d3d27a5875a29532e", [:mix], []},
   "metrics": {:hex, :metrics, "1.0.1", "25f094dea2cda98213cecc3aeff09e940299d950904393b2a29d191c346a8486", [:rebar3], []},
   "mimerl": {:hex, :mimerl, "1.0.2", "993f9b0e084083405ed8252b99460c4f0563e41729ab42d9074fd5e52439be88", [:rebar3], []},
   "plug": {:hex, :plug, "1.1.6", "8927e4028433fcb859e000b9389ee9c37c80eb28378eeeea31b0273350bf668b", [:mix], [{:cowboy, "~> 1.0", [hex: :cowboy, optional: true]}]},
