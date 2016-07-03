@@ -48,10 +48,6 @@ defmodule PageObject.Collections.Collection do
     generate_module(collection_name, opts)
   end
 
-  @doc """
-    Generates a module named after the camelized `collection_name` within the scope
-    of the calling module.
-  """
   defp generate_module(collection_name, opts, block \\ nil) do
     quote do
       module = Module.concat([__MODULE__, Inflex.camelize(unquote(to_string(collection_name)))])
