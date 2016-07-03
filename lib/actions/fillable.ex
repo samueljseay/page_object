@@ -1,4 +1,7 @@
 defmodule PageObject.Actions.Fillable do
+  @moduledoc """
+    A module wrapper for the fillable action macro
+  """
   defmacro fillable(action_name, css_selector, _opts \\ []) do
     quote do
       scope = Module.get_attribute(__MODULE__, :scope) || ""

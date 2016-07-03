@@ -13,6 +13,10 @@ defmodule PageObject.Collections.Collection do
     defines a collection scope based on `:item_scope` passed in to opts. A camelized module is generated from the `collection_name`. the `:item_scope`
     is used to generate a css selector scope that queries and actions defined within the block can use.
 
+    The module generates 2 functions for querying the items in the collection:
+
+    `all` which returns all items in the collection and `get(index)` which returns the item at passed `index`
+
     ##Examples
 
     ```

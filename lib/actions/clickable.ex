@@ -1,16 +1,43 @@
 defmodule PageObject.Actions.Clickable do
+  @moduledoc """
+    A module wrapper for the clickable action macro
+  """
+
+  @doc """
+    Defines a module function that can perform a click action on an element. The function name
+    is derived by `action_name`.
+
+    When scoped to a collection it requires an element be passed to the action.
+
+    ## Examples
+    ```
+    # without a collection
+    defmodule MyPage do
+      use PageObject
+
+      clickable :submit, "form button"
+    end
+
+    # click form submit button
+    MyPage.submit
+
+    # with a collection
+    defmodule MyPage do
+      use PageObject
+
+      collection :things, ".thing" do
+        clickable :submit, "button"
+      end
+    end
+
+    # click button of 0th item in things
+    |> MyPage.Things.get(0)
+    MyPage.Things.submit
+    ```
+  """
   defmacro clickable(action_name, css_selector, _opts \\ []) do
     quote do
       scope = Module.get_attribute(__MODULE__, :scope) || ""
-
-      # If clickable is scoped to a collection then only generate a submit method that takes an element
-      # if not then it will click the selector provided.
-
-      # scoped example:
-      # Page.Sites.get(0) |> Page.Sites.click
-
-      # unscoped example:
-      # Page.click
 
       if (scope == "") do
         def unquote(action_name)() do

@@ -1,4 +1,8 @@
 defmodule PageObject.Actions.Visitable do
+  @moduledoc """
+    A module wrapper for the visitable action macro
+  """
+
   alias PageObject.Util.Url
 
   defmacro visitable(action_name, url) do
