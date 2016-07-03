@@ -7,6 +7,8 @@ Page Object pattern for automated testing in Elixir. The API is inspired by [emb
 
 To find out more about the PageObject pattern check out the [selenium documentation](https://seleniumhq.github.io/docs/best.html#page_object_models).
 
+Please note: There is not an official first release yet, the API may change.
+
 ## Install
 
 PageObject is not published on hex yet, so if you want to use it at the moment you'll need to add the following to your mix.exs in deps:
@@ -45,12 +47,10 @@ DashboardPage.visit_and_submit(1)
 # click logout
 DashboardPage.logout
 
-# how many ".things" are there
+# how many ".thing" elements are there?
 count =
   DashboardPage.Things.all
   |> Enum.count
-
-IO.puts count
 
 # get 0th item from collection of elements and click button on that item
 DashboardPage.Things.get(0)
@@ -73,3 +73,5 @@ Browser automation is handled by Hound but you'll also need phantomjs installed.
 ### TODO
 * publish on hex
 * moduledoc
+* doc tests
+* add credo to CI
