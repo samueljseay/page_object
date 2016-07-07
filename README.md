@@ -72,5 +72,3 @@ Browser automation is handled by Hound but you'll also need phantomjs installed.
 
 ### TODO
 * publish on hex
-* moduledoc
-* add credo to CI
