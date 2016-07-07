@@ -1,4 +1,9 @@
 defmodule PageObject.Util.Url do
+  @moduledoc """
+    A group of URL helpers used in visitable macro currently. These will be mostly replaced by usage of the URI module
+    in future.
+  """
+
   def convert_url_to_dynamic_segments(url) do
     url
     |> split
