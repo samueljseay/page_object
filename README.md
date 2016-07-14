@@ -8,8 +8,6 @@ PageObject currently uses hound but in future may also support other integration
 
 To find out more about the PageObject pattern check out the [selenium documentation](https://seleniumhq.github.io/docs/best.html#page_object_models).
 
-**Please note: There is not an official first release yet, the API may change.**
-
 ## Install
 
 Install PageObject via hex:
