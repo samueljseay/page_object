@@ -28,7 +28,7 @@ defmodule PageObject.Mixfile do
   defp description do
     """
     page_object is a DSL implementing a Page Object pattern for automated testing in Elixir.
-    The API for PageObject is inspired by ember-cli-page-object. The package relies on hound to provide
+    The API for page_object is inspired by ember-cli-page-object. The package relies on hound to provide
     web page interaction.
     """
   end
