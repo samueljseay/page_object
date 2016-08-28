@@ -21,4 +21,11 @@ defmodule VisitableTest do
 
     assert current_url == "http://localhost:4000/account/2/view.html?param=param1&other_param=param2"
   end
+
+  test "can assert the current url using the visit_url method generated in the macro" do
+    AccountPage.visit(account_id: 2, param: "param1", other_param: "param2")
+
+    assert current_url == AccountPage.visit_url(account_id: 2, param: "param1", other_param: "param2")
+  end
+
 end
