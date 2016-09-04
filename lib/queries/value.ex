@@ -8,7 +8,7 @@ defmodule PageObject.Queries.Value do
 
     The function name is derived by `name`. When scoped to a collection the function takes an element as an argument.
 
-    ##Examples
+    ## Example
 
     ```
     #not in a collection

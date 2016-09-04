@@ -7,7 +7,7 @@ defmodule PageObject.Queries.Attribute do
     Defines a module function that queries the attribute value of an element on an html page. The function name is derived
     by `name`. When scoped to a collection the function takes an element as an argument.
 
-    ##Examples
+    ## Example
 
     ```
     #not in a collection

@@ -10,7 +10,7 @@ defmodule PageObject.Actions.Visitable do
     Also generates a method appending _url for asserting that the current_url matches the one derived
     for the visitable.
 
-    ## Examples
+    ## Example
     ```
     defmodule DashboardPage do
       use PageObject

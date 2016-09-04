@@ -9,7 +9,8 @@ defmodule PageObject.Actions.Fillable do
 
     When scoped to a collection it requires an element be passed to the action.
 
-    ## Examples
+    ## Example
+
     ```
     # without a collection
     defmodule MyPage do

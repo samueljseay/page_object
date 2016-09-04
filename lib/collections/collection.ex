@@ -17,7 +17,7 @@ defmodule PageObject.Collections.Collection do
 
     `all` which returns all items in the collection and `get(index)` which returns the item at passed `index`
 
-    ##Examples
+    ## Example
 
     ```
     defmodule MyPage do
