@@ -41,15 +41,17 @@ defmodule PageObject.Actions.Fillable do
       scope = Module.get_attribute(__MODULE__, :scope) || ""
 
       if (scope == "") do
-        def unquote(action_name)(value) do
+        def unquote(action_name)(module \\ __MODULE__, value) do
           find_element(:css, unquote(css_selector))
           |> fill_field(value)
+          module
         end
       else
-        def unquote(action_name)(el, value) do
+        def unquote(action_name)(module \\ __MODULE__, el, value) do
           el
           |> find_within_element(:css, unquote(css_selector))
           |> fill_field(value)
+          module
         end
       end
     end

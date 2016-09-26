@@ -1,22 +1,32 @@
+defmodule ClickablePage do
+  use PageObject
+
+  visitable :visit, "http://localhost:4000/index.html"
+  clickable :click_show, "#show-hidden"
+  attribute :hidden_style, "style", "#hidden"
+end
+
 defmodule ClickableTest do
   use ExUnit.Case
   use Hound.Helpers
 
   hound_session
 
-  defmodule IndexPage do
-    use PageObject
-
-    visitable :visit, "http://localhost:4000/index.html"
-    clickable :click_show, "#show-hidden"
-    attribute :hidden_style, "style", "#hidden"
-  end
+  import ClickablePage
 
   test "clicking the show-hidden button causes an element to come into view" do
-    IndexPage.visit
+    ClickablePage.visit
 
-    assert IndexPage.hidden_style == "display: none;"
-    IndexPage.click_show
-    assert IndexPage.hidden_style == "display: block;"
+    assert ClickablePage.hidden_style == "display: none;"
+    ClickablePage.click_show
+    assert ClickablePage.hidden_style == "display: block;"
+  end
+
+  test "chaining click and show works" do
+    ClickablePage
+      |> visit
+      |> click_show
+
+    assert ClickablePage.hidden_style == "display: block;"
   end
 end

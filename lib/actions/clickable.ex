@@ -41,15 +41,17 @@ defmodule PageObject.Actions.Clickable do
       scope = Module.get_attribute(__MODULE__, :scope) || ""
 
       if (scope == "") do
-        def unquote(action_name)() do
+        def unquote(action_name)(module \\ __MODULE__) do
           find_element(:css, unquote(css_selector))
           |> click
+          module
         end
       else
-        def unquote(action_name)(el) do
+        def unquote(action_name)(module \\ __MODULE__, el) do
           el
           |> find_within_element(:css, unquote(css_selector))
           |> click
+          module
         end
       end
     end

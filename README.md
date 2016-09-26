@@ -83,4 +83,4 @@ For more API examples see the [tests](https://github.com/samueljseay/page_object
 Browser automation is handled by Hound but you'll also need phantomjs installed.
 
 1. `npm install -g phantomjs`
-2. `phantomjs --wd > /dev/null 2>&1 & mix test; && killall phantomjs`
+2. `phantomjs --wd > /dev/null 2>&1 & mix test; killall phantomjs`
