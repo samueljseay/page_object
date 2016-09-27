@@ -51,10 +51,20 @@ defmodule PageObject.Actions.Visitable do
         end)
       end
 
-      def unquote(action_name)(segments \\ []) do
+      def unquote(action_name)(module \\ __MODULE__, segments \\ [])
+
+      def unquote(action_name)(segments, _) when is_list(segments) do
         unquote(url)
         |> get_url(segments)
         |> navigate_to
+        __MODULE__
+      end
+
+      def unquote(action_name)(module, segments) do
+        unquote(url)
+        |> get_url(segments)
+        |> navigate_to
+        module
       end
 
       def unquote(:"#{action_name}_url")(segments \\ []) do

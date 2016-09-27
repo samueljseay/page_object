@@ -50,14 +50,32 @@ defmodule DashboardPage do
   end
 end
 
+# import the module so that actions can be chained together
+import DashboardPage
+
 # visit http://localhost:4001/account/1/dashboard?test_param=filter
 DashboardPage.visit_and_submit(1)
+
+# or chain actions
+DashboardPage
+|> visit(account_id: 1, test_param: "filter")
+|> submit
 
 # visit the page and update a form value
 DashboardPage.update_email("newemail@example.com")
 
+# or chain actions again
+DashboardPage
+|> visit(account_id: 1, test_param: "filter")
+|> fill_email("newemail@example.com")
+|> submit
+
 # confirm the value was updated
 assert DashboardPage.email == "newemail@example.com"
+
+# useful assertions for urls
+DashboardPage.visit(account_id: 3, test_param: "filter")
+assert current_url == DashboardPage.visit_url(account_id: 3, test_param: "filter")
 
 # click logout
 DashboardPage.logout
@@ -83,4 +101,4 @@ For more API examples see the [tests](https://github.com/samueljseay/page_object
 Browser automation is handled by Hound but you'll also need phantomjs installed.
 
 1. `npm install -g phantomjs`
-2. `phantomjs --wd > /dev/null 2>&1 & mix test; && killall phantomjs`
+2. `phantomjs --wd > /dev/null 2>&1 & mix test; killall phantomjs`
