@@ -44,6 +44,8 @@ defmodule PageObject.Queries.Attribute do
         def unquote(name)() do
           find_element(:css, unquote(css_selector))
           |> attribute_value(unquote(attr))
+          # some attributes give back inconsistent whitespace with different drivers, this eliminates that
+          |> String.trim
         end
       else
         def unquote(name)(el) do
