@@ -94,7 +94,7 @@ DashboardPage.Things.get(0)
 |> DashboardPage.Things.name_value
 ```
 
-For more API examples see the [tests](https://github.com/samueljseay/page_object/tree/master/test). Documentation coming soon.
+For more API examples see the [tests](https://github.com/samueljseay/page_object/tree/master/test).
 
 ### Running the tests
 
