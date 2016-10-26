@@ -12,7 +12,7 @@ To find out more about the PageObject pattern check out the [selenium documentat
 
 Install PageObject via hex:
 
-`{:page_object, "~> 0.1.0"}`
+`{:page_object, "~> 0.3.0"}`
 
 To use PageObject in your tests you'll still need to setup hound in your test environment. To find out more about that go to the [hound repository](https://github.com/HashNuke/hound).
 
@@ -98,7 +98,7 @@ For more API examples see the [tests](https://github.com/samueljseay/page_object
 
 ### Running the tests
 
-Browser automation is handled by Hound but you'll also need phantomjs installed.
+Browser automation is handled by Hound but you'll also need `phantomjs` installed.
 
 1. `npm install -g phantomjs`
 2. `phantomjs --wd > /dev/null 2>&1 & mix test; killall phantomjs`
