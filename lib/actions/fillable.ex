@@ -36,22 +36,43 @@ defmodule PageObject.Actions.Fillable do
     MyPage.Things.fillable("demo@example.com")
     ```
   """
-  defmacro fillable(action_name, css_selector, _opts \\ []) do
-    quote do
-      scope = Module.get_attribute(__MODULE__, :scope) || ""
+  defmacro fillable(action_name, css_selector, opts \\ []) do
+    if opts[:clear] == false do
+      quote do
+        scope = Module.get_attribute(__MODULE__, :scope) || ""
 
-      if (scope == "") do
-        def unquote(action_name)(module \\ __MODULE__, value) do
-          find_element(:css, unquote(css_selector))
-          |> fill_field(value)
-          module
+        if (scope == "") do
+          def unquote(action_name)(module \\ __MODULE__, value) do
+            find_element(:css, unquote(css_selector))
+            |> input_into_field(value)
+            module
+          end
+        else
+          def unquote(action_name)(module \\ __MODULE__, el, value) do
+            el
+            |> find_within_element(:css, unquote(css_selector))
+            |> input_into_field(value)
+            module
+          end
         end
-      else
-        def unquote(action_name)(module \\ __MODULE__, el, value) do
-          el
-          |> find_within_element(:css, unquote(css_selector))
-          |> fill_field(value)
-          module
+      end
+    else
+      quote do
+        scope = Module.get_attribute(__MODULE__, :scope) || ""
+
+        if (scope == "") do
+          def unquote(action_name)(module \\ __MODULE__, value) do
+            find_element(:css, unquote(css_selector))
+            |> fill_field(value)
+            module
+          end
+        else
+          def unquote(action_name)(module \\ __MODULE__, el, value) do
+            el
+            |> find_within_element(:css, unquote(css_selector))
+            |> fill_field(value)
+            module
+          end
         end
       end
     end
