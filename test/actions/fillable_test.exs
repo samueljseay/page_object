@@ -9,6 +9,9 @@ defmodule IndexPage do
   fillable :fill_username, "input[name='username']"
   value :username_value, "input[name='username']"
 
+  fillable :fill_choice, "select[name='choice']", clear: false
+  value :choice_value, "select[name='choice']"
+
   collection :things, item_scope: "ul .thing" do
     value :text_input, "input[type='text']"
     fillable :fill_input, "input[type='text']"
@@ -59,5 +62,13 @@ defmodule FillableTest do
       |> fill_email("new@example.com")
 
     assert IndexPage.email_value == "new@example.com"
+  end
+
+  test "can fill a select" do
+    IndexPage
+      |> visit
+      |> fill_choice("vanilla")
+
+    assert IndexPage.choice_value == "vanilla"
   end
 end
