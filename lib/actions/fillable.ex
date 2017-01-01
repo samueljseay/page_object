@@ -27,13 +27,13 @@ defmodule PageObject.Actions.Fillable do
       use PageObject
 
       collection :things, ".thing" do
-        fillable :submit, "input[type='email']"
+        fillable :email, "input[type='email']"
       end
     end
 
     # fill input of 0th item in things
     |> MyPage.Things.get(0)
-    MyPage.Things.fillable("demo@example.com")
+    MyPage.Things.email("demo@example.com")
     ```
   """
   defmacro fillable(action_name, css_selector, _opts \\ []) do
