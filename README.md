@@ -12,7 +12,7 @@ To find out more about the PageObject pattern check out the [selenium documentat
 
 Install PageObject via hex:
 
-`{:page_object, "~> 0.3.0"}`
+`{:page_object, "~> 0.4.0"}`
 
 To use PageObject in your tests you'll still need to setup hound in your test environment. To find out more about that go to the [hound repository](https://github.com/HashNuke/hound).
 
