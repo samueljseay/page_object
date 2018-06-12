@@ -10,7 +10,7 @@ defmodule PageObject do
       import PageObject
       import PageObject.Collections.Collection
       import PageObject.Actions.{Visitable, Clickable, Fillable, Selectable}
-      import PageObject.Queries.{Attribute, IsPresent, IsSelected, Text, Value}
+      import PageObject.Queries.{Attribute, IsPresent, IsSelected, IsVisible, Text, Value}
     end
   end
 end

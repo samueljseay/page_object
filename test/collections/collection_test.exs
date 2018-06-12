@@ -25,7 +25,7 @@ defmodule CollectionTest do
 
   test "collection is scoped to the item_scope" do
     IndexPage.visit
-    assert Enum.count(IndexPage.Things.all) == 5
+    assert Enum.count(IndexPage.Things.all) == 6
   end
 
   test "collection names are camelized" do
@@ -55,6 +55,6 @@ defmodule CollectionTest do
   test "collection defined without a block still behaves as expected" do
     IndexPage.visit
 
-    assert Enum.count(IndexPage.Things.all) == 5
+    assert Enum.count(IndexPage.Things.all) == 6
   end
 end
